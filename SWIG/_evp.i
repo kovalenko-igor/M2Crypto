@@ -28,6 +28,12 @@ Copyright (c) 2009-2010 Heikki Toivonen. All rights reserved.
 %apply Pointer NONNULL { EVP_CIPHER * };
 %apply Pointer NONNULL { RSA * };
 
+%rename (openssl_add_all_algorithms_noconf) OPENSSL_add_all_algorithms_noconf;
+void OPENSSL_add_all_algorithms_noconf(void);
+
+%rename (openssl_add_all_algorithms_conf) OPENSSL_add_all_algorithms_conf;
+void OPENSSL_add_all_algorithms_conf(void);
+
 %rename(md5) EVP_md5;
 extern const EVP_MD *EVP_md5(void);
 %rename(sha1) EVP_sha1;
