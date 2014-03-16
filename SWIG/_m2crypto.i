@@ -67,5 +67,4 @@ extern void OPENSSL_config(const char *config_name=NULL);
 %include _ec.i
 %include _engine.i
 %include _objects.i
-%include _conf.i
 
