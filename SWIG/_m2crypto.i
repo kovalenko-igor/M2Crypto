@@ -18,6 +18,7 @@
 %{
 #include <openssl/err.h>
 #include <openssl/rand.h>
+#include <openssl/conf.h>
 
 #include "compile.h"
 
@@ -26,6 +27,10 @@ static PyObject *ssl_info_cb_func;
 static PyObject *ssl_set_tmp_dh_cb_func;
 static PyObject *ssl_set_tmp_rsa_cb_func;
 %}
+
+/* Maintenance functions  */
+%rename (openssl_conf) OPENSSL_config;
+extern void OPENSSL_config(const char *config_name=NULL);
 
 %include <openssl/opensslv.h>
 
@@ -63,3 +68,7 @@ static PyObject *ssl_set_tmp_rsa_cb_func;
 %include _engine.i
 %include _objects.i
 %include _conf.i
+
+%{
+%}
+
